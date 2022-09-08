@@ -6,7 +6,7 @@ import store from '../redux/store';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    import("bootstrap/dist/js/bootstrap.min.js");
+    import('bootstrap/dist/css/bootstrap.css');
   }, []);
   return (
     <Provider store={store}>

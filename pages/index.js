@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
-
+import Video from '../components/Video';
+import 'bootstrap/dist/css/bootstrap.css';
 import Layout from '../components/layout/Layout.js';
 import Image from 'next/image';
 import analogPict from '../public/img/analog.png';
@@ -9,6 +10,7 @@ import { Carousel } from 'react-bootstrap'
 import ImageOne from "../public/assets/banner1.jpg"
 import ImageTwo from "../public/assets/banner2.jpg"
 import ImageThree from "../public/assets/banner3.jpg"
+import Link from 'next/link.js';
 
  
 function LandingPage() {
@@ -32,6 +34,7 @@ function LandingPage() {
               style={{ height: '100vh', backgroundColor: '#f6f8ffe3' }}
             >
               <div className="row d-flex flex-row justify-content-center align-items-center">
+              
                 <div className="col-11 col-sm-5 col-lg-4 d-flex flex-column justify-content-center">
                   <Image
                     className={style['img-btn-console']}
@@ -42,6 +45,7 @@ function LandingPage() {
                 <div
                   className={`col-11 col-sm-7 col-lg-6 mt-5 mt-lg-0 judul-container d-flex flex-column justify-content-start ${style['judul-container']}`}
                 >
+                  <Video />
                   <p
                     className="text-uppercase"
                     style={{ color: 'rgb(0, 0, 0)' }}
@@ -54,7 +58,7 @@ function LandingPage() {
                     display: 'wrap'}}>
                     Find Your Favorite Games Here!
                   </p>
-                  <a
+                  <Link
                     href="/game"
                     className={`btn mt-2 ${style['btn']}`}
                     style={{
@@ -64,7 +68,7 @@ function LandingPage() {
                     }}
                   >
                     PLAY NOW
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

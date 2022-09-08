@@ -1,7 +1,10 @@
+/*eslint-disable*/
+
 import React, { Fragment, useState, useEffect, Component } from 'react';
 import { useRouter, withRouter, NextRouter } from 'next/router';
 import Layout from '../../components/layout/Layout';
 import Image from 'next/image';
+import Video from '../../components/Video';
 
 import prsPict from '../../public/img/RockPaperScissor.jpg';
 import {
@@ -76,7 +79,7 @@ function detail() {
                     style={{ color: 'black' }}
                   >
                     {' '}
-                    Playing games is not a crime, let's play! <br></br>
+                    Playing games is not a crime, lets play! <br></br>
                     <p style={{ fontSize: '70px' }}>{game.name}</p>{''}
                   </h1>
 
@@ -96,6 +99,17 @@ function detail() {
               </div>
             </div>
           </section>
+
+          {/* Video */}
+          <div className={style.white} >
+              <h1 className="animate__animated animate__bounce">VIDEO</h1>
+              <p>KELOMPOK 3</p>
+              <div>
+                <Video />
+              </div>
+            </div>
+          {/* Video */}
+
           <section id={style['list-game']}>
             <div className="container">
               <div

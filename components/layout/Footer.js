@@ -16,7 +16,7 @@ function Footer() {
 								<Image src={Logo} alt="Trackling" width="200px" height="73px" />
 							</div>
 							<p>
-								We're a websibe-platform which provides some mini-games that focused to increase your happiness!
+								We are the websibe-platform which provides some mini-games that focused to increase your happiness!
 							</p>
 						</div>
 
@@ -73,7 +73,7 @@ function Footer() {
 				</div>
 				<div className={styles.credits}>
 					Logo Designed by{" "}
-					<a href="https://www.facebook.com/anhedoniambedo" target="_blank">
+					<a href="https://www.facebook.com/anhedoniambedo" target="_blank" rel="noreferrer">
 						Naufal
 					</a>
 				</div>

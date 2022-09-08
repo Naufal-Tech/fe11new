@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
@@ -19,6 +21,9 @@ const Register = () => {
   });
 
   const { first_name, last_name, email, username, password } = user;
+
+  const [avatar, setAvatar] = useState('');
+  const [avatarPreview, setAvatarPreview] = useState('/img/default_avatar.jpg');
 
   const { success, error, loading } = useSelector((state) => state.register);
 
@@ -45,13 +50,25 @@ const Register = () => {
       email,
       username,
       password,
+      avatar,
     };
 
     dispatch(registerUser(userData));
   };
 
   const onChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    if (e.target.name === 'avatar') {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setAvatar(reader.result);
+          setAvatarPreview(reader.result);
+        }
+      };
+      reader.readAsDataURL(e.target.files[0]);
+    } else {
+      setUser({ ...user, [e.target.name]: e.target.value });
+    }
   };
 
   return (
@@ -122,6 +139,36 @@ const Register = () => {
                   value={password}
                   onChange={onChange}
                 />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="avatar_upload">Avatar</label>
+                <div className="d-flex align-items-center">
+                  <div>
+                    <figure className="avatar mr-3 item-rtl">
+                      <img
+                        src={avatarPreview}
+                        className="rounded-circle"
+                        alt="image"
+                        height={'60px'}
+                        width={'60px'}
+                      />
+                    </figure>
+                  </div>
+                  <div className="custom-file">
+                    <input
+                      type="file"
+                      name="avatar"
+                      className="custom-file-input"
+                      id="customFile"
+                      accept="images/*"
+                      onChange={onChange}
+                    />
+                    <label className="custom-file-label" htmlFor="customFile">
+                      Choose Avatar
+                    </label>
+                  </div>
+                </div>
               </div>
 
               <button
